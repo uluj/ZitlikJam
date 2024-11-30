@@ -60,6 +60,13 @@ public class PlayerController : MonoBehaviour
                 Debug.LogWarning("Animator Controller 'BadCharacter' not found in Resources folder.");
             }
         }
+        
+        if ((Input.GetKeyDown(KeyCode.D) && transform.localScale.x < 0) || (Input.GetKeyDown(KeyCode.A)&& transform.localScale.x > 0))
+        {
+            Vector3 newScale = transform.localScale;
+            newScale.x *= -1;
+            transform.localScale = newScale;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
