@@ -24,7 +24,7 @@ public class FlyingEnemy : Enemies
 
     private void Update()
     {
-        Debug.Log(_isFlying);
+        //Debug.Log(_isFlying);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, targetRadius);
         foreach (var hitColliders in colliders)
         {
@@ -32,7 +32,7 @@ public class FlyingEnemy : Enemies
             {
                 if (!_isFlying)
                 {
-                    Debug.Log("Player Hit");
+                    //Debug.Log("Player Hit");
                     _player = hitColliders.transform;
                     flyPos = new Vector2(Random.Range(-randomX, randomX), Random.Range(-randomY, randomY));
                     _isFlying = true;
@@ -44,7 +44,7 @@ public class FlyingEnemy : Enemies
         {
             if (Vector2.Distance(transform.position, flyPos) < .3f && !_isHit)
             {
-                Debug.Log("is flying");
+                //Debug.Log("is flying");
                 _isHit = true;
             }
 
@@ -57,7 +57,7 @@ public class FlyingEnemy : Enemies
             else if (_isHit)
             {
                 transform.position = Vector2.Lerp(transform.position, _player.position, hitSpeed * Time.deltaTime);
-                Debug.Log("is hit");
+                //Debug.Log("is hit");
                 if (Vector2.Distance(transform.position,_player.position)<.5f)
                 {
                     _isHit = false;
