@@ -18,20 +18,20 @@ public class BadCharacterState2 : StateMachineBehaviour
             Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             // Set IsRunning to true
-            animator.SetBool("IsRunning", true);
+            animator.SetBool("IsRunning1", true);
             //Debug.Log("IsRunning");
         }
-        else if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            animator.SetBool("IsJumping", true);
+            animator.SetBool("IsJumping1", true);
 
-            Debug.Log("IsJumping");
+            Debug.Log("IsJumping1");
         }
         else
         {
             // Set IsRunning to false if no keys are pressed
-            animator.SetBool("IsRunning", false);
-            animator.SetBool("IsJumping", false);
+            animator.SetBool("IsRunning1", false);
+            animator.SetBool("IsJumping1", false);
             //Debug.Log("IsNotRunning");
         }
 

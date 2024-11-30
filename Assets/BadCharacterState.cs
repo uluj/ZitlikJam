@@ -17,19 +17,19 @@ public class BadCharacterState : StateMachineBehaviour
             Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             // Set IsRunning to true
-            animator.SetBool("IsRunning", true);
+            animator.SetBool("IsRunning1", true);
             //Debug.Log("IsRunning");
         }
         else
         {
             // Set IsRunning to false if no keys are pressed
-            animator.SetBool("IsRunning", false);
+            animator.SetBool("IsRunning1", false);
             //Debug.Log("IsNotRunning");
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            animator.SetBool("IsJumping", true);
-            Debug.Log("IsJumping");
+            animator.SetBool("IsJumping1", true);
+            Debug.Log("IsJumping1");
         }
         
     }

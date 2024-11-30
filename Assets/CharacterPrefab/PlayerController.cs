@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -8,13 +9,21 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f; // Speed of movement
     public float jumpForce = 10f; // Force applied when jumping
 
+    public RuntimeAnimatorController badCharacterController;
+    public RuntimeAnimatorController goodCharacterController;
+
+    private bool key=true;
+
     private Rigidbody2D rb;
     private bool isGrounded;
+
+    private Animator _animator;
 
     void Start()
     {
         // Get the Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -27,6 +36,29 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+        //Hey chatgbt can you make g button to change the animator of this character
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+
+            if (badCharacterController != null&&key)
+            {
+                // Switch to the new controller
+                _animator.runtimeAnimatorController = badCharacterController; // Assign the new controller
+                Debug.Log("Animator controller switched to 'BadCharacter'");
+                key = false;
+            }
+            else if (badCharacterController != null&&!key)
+            {
+                key = true;
+                // Switch to the new controller
+                _animator.runtimeAnimatorController = goodCharacterController; // Assign the new controller
+                Debug.Log("Animator controller switched to 'GoodCharacter'");
+            }
+            else
+            {
+                Debug.LogWarning("Animator Controller 'BadCharacter' not found in Resources folder.");
+            }
         }
     }
 
