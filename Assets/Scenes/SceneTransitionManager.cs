@@ -5,14 +5,14 @@ public class SpriteAlphaLerp : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer; // The sprite you want to modify
     [SerializeField] private float speed = 1f; // Speed of the lerp
-    [SerializeField] private GameObject GameobjectToInactivate;
-    private const float StartAlpha = 180f / 255f; // Starting alpha (180/255 = 0.71)
+   // [SerializeField] private GameObject GameobjectToInactivate;
+    private const float StartAlpha = 0 / 255f; // Starting alpha (180/255 = 0.71)
     private const float EndAlpha = 240f / 255f;  // Ending alpha (240/255 = 0.94)
 
     private void Start()
     {
         // Start the alpha transition
-        StartCoroutine(LerpAlphaMultipleTimes(3));
+        StartCoroutine(LerpAlphaMultipleTimes(5));
     }
 
     private IEnumerator LerpAlphaMultipleTimes(int repeatCount)
@@ -21,22 +21,30 @@ public class SpriteAlphaLerp : MonoBehaviour
         {
             // Fade in from StartAlpha to EndAlpha
             yield return StartCoroutine(LerpAlpha(StartAlpha, EndAlpha));
+
             // Fade out from EndAlpha to StartAlpha
             yield return StartCoroutine(LerpAlpha(EndAlpha, StartAlpha));
         }
-        //gameobject inactivate task fire 
-        if (GameobjectToInactivate != null)
-        {
-            // Deactivate the GameObject
-            GameobjectToInactivate.SetActive(false);
 
-            // Wait for 2 seconds
-            yield return new WaitForSeconds(2f);
+        //// Optionally deactivate the GameObject
+        //if (GameobjectToInactivate != null)
+        //{
+        //    // Deactivate the GameObject
+        //    GameobjectToInactivate.SetActive(false);
 
-            // Reactivate the GameObject
-            GameobjectToInactivate.SetActive(true);
-        }
+        //    // Wait for 2 seconds
+        //    yield return new WaitForSeconds(2f);
+
+        //    // Reactivate the GameObject
+        //    GameobjectToInactivate.SetActive(true);
+        //}
+
+        // Set the sprite's alpha to 0
+        Color color = spriteRenderer.color;
+        color.a = 0;
+        spriteRenderer.color = color;
     }
+
 
     private IEnumerator LerpAlpha(float startAlpha, float endAlpha)
     {
