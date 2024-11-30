@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,7 +147,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "Ba\u015Fl\u0131ks\u0131z16_20241130030414_0"
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 1804
+        width: 1342
+        height: 1570
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c678edfab59554580e9c35622a9b4c
+      internalID: -697541635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ba\u015Fl\u0131ks\u0131z16_20241130030414_1"
+      rect:
+        serializedVersion: 2
+        x: 3023
+        y: 1704
+        width: 1164
+        height: 1566
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e0e5543e5e80424f94f59cae7d77cf7
+      internalID: -1148038910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Ba\u015Fl\u0131ks\u0131z16_20241130030414_2"
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 138
+        width: 1236
+        height: 1742
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5e95f19a4139ba43952191f3de4ae27
+      internalID: -1761841078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +221,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Ba\u015Fl\u0131ks\u0131z16_20241130030414_0": -697541635
+      "Ba\u015Fl\u0131ks\u0131z16_20241130030414_1": -1148038910
+      "Ba\u015Fl\u0131ks\u0131z16_20241130030414_2": -1761841078
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
