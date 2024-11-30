@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
         // Check if the player touches any surface
         isGrounded = true;
     }
-
+    
     private void OnCollisionExit2D(Collision2D collision)
     {
         // Check if the player leaves the surface
