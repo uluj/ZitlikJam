@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cd53efdfd5e9b974791290f45d55a84c
+guid: b386522a83aa21a439410f413be5664e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,22 +149,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Ba\u015Fl\u0131ks\u0131z33_20241130185939_1"
+      name: bullet_0
       rect:
         serializedVersion: 2
-        x: 610
-        y: 1630
-        width: 204
-        height: 245
+        x: 609
+        y: 1638
+        width: 217
+        height: 261
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 59, y: 60, z: 38, w: 24}
+      pivot: {x: 0, y: 0}
+      border: {x: 66, y: 57, z: 54, w: 54}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d8a19224f20fbf4e91a4a3faee9d998
-      internalID: 1233913958
+      spriteID: d03fc2c4999725f4db8221118ae73729
+      internalID: 1070981057
       vertices: []
       indices: 
       edges: []
@@ -180,11 +180,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "Ba\u015Fl\u0131ks\u0131z33_20241130185939_0": -1941560011
-      "Ba\u015Fl\u0131ks\u0131z33_20241130185939_1": 1233913958
-      "Ba\u015Fl\u0131ks\u0131z33_20241130185939_2": -755969346
-      "Ba\u015Fl\u0131ks\u0131z33_20241130185939_3": -1018379563
-      "Ba\u015Fl\u0131ks\u0131z33_20241130185939_4": 1975806547
+      bullet_0: 1070981057
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
