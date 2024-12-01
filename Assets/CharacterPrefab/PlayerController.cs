@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -117,5 +113,9 @@ public class PlayerController : MonoBehaviour
             Debug.LogWarning("Bullet prefab or fire point not assigned.");
         }
     }
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> 451c3b25397221faae35c20b655a2231801a0350

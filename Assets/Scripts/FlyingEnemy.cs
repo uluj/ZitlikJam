@@ -1,4 +1,5 @@
 using System;
+using BarthaSzabolcs.Tutorial_SpriteFlash;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,7 @@ public class FlyingEnemy : Enemies
     [SerializeField] private float targetRadius = 0.2f;
     [SerializeField] private float randomX;
     [SerializeField] private float randomY;
+    [SerializeField] private float damage;
 
     private Rigidbody2D _rb;
     private bool _isFlying;
@@ -51,7 +53,6 @@ public class FlyingEnemy : Enemies
         {
             if (Vector2.Distance(transform.position, flyPos) < .3f && !_isHit)
             {
-                
                 _isHit = true;
             }
 
@@ -64,6 +65,7 @@ public class FlyingEnemy : Enemies
             else if (_isHit)
             {
                 transform.position = Vector2.Lerp(transform.position, _player.position, hitSpeed * Time.deltaTime);
+                _player.GetComponent<SimpleFlash>().Flash();
                 if (Vector2.Distance(transform.position, _player.position) < .5f)
                 {
                     _isHit = false;
@@ -97,7 +99,8 @@ public class FlyingEnemy : Enemies
     {
         if (other.gameObject.CompareTag("Player") && _isHit)
         {
-            Instantiate(hitEffect,other.transform.position,Quaternion.identity);
+            Instantiate(hitEffect,other.transform.position,Quaternion.identity,other.transform);
+            _player.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 }

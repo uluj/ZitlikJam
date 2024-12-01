@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IyiMapTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Emin's/Options.unity
+    guid: e38d28aa72209e74c8467be91b2c87cf
+  - enabled: 1
+    path: Assets/Scenes/Emin's/NewGame.unity
+    guid: a66a7842e38a60b459225c0b48400cd0
+  - enabled: 1
+    path: Assets/Scenes/Emin's/Credits.unity
+    guid: 85882b7db267bec4987bdfb2415fa58f
   m_configObjects: {}
