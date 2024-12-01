@@ -15,6 +15,7 @@ public class PathpointZiplayanTest : MonoBehaviour
     [SerializeField] private float waitTime = 1f; // Time to wait at pointC
     [SerializeField] private float speed = 1f;   // Speed of interpolation
 
+    [SerializeField] private Animator _animator;
     private void Start()
     {
         StartCoroutine(MoveAlongPath());
@@ -24,12 +25,14 @@ public class PathpointZiplayanTest : MonoBehaviour
     {
         while (true) // Loop indefinitely
         {
+            ChangeAnimationStateFrogJump();
             // Step 1: Interpolate along the Bézier curve (A to C)
             yield return StartCoroutine(MoveBezier(pointA.position, pointB.position, pointC.position));
 
             // Step 2: Wait for the specified time
             yield return new WaitForSeconds(waitTime);
 
+            ChangeAnimationStateFrogIdle();
             // Step 3: Interpolate from C to D
             yield return StartCoroutine(MoveLinear(pointC.position, pointD.position));
 
@@ -83,5 +86,14 @@ public class PathpointZiplayanTest : MonoBehaviour
         }
         PathpointParent.position = end; // Ensure it snaps to the end
     }
-
+    // 
+    private void ChangeAnimationStateFrogJump()
+    {
+        _animator.SetBool("IsJumpingFrog", true);
+    }
+    private void ChangeAnimationStateFrogIdle()
+    {
+    {
+        _animator.SetBool("IsJumpingFrog", false);   }
+    }
 }
