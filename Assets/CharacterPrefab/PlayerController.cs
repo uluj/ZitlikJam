@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,18 +8,27 @@ public class PlayerController : MonoBehaviour
     public RuntimeAnimatorController badCharacterController;
     public RuntimeAnimatorController goodCharacterController;
 
-    private bool key=true;
+    private bool key = true;
+
+    [SerializeField]
+    private GameObject bulletPrefab; // Bullet prefab
+
+    [SerializeField]
+    private Transform firePoint;
 
     private Rigidbody2D rb;
     private bool isGrounded;
 
     private Animator _animator;
 
+    //[SerializeField]
     void Start()
     {
         // Get the Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        // bullet scr is in another prefab that is spawning can you use unity events here
+
     }
 
     void Update()
@@ -41,14 +46,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
 
-            if (badCharacterController != null&&key)
+            if (badCharacterController != null && key)
             {
                 // Switch to the new controller
                 _animator.runtimeAnimatorController = badCharacterController; // Assign the new controller
                 Debug.Log("Animator controller switched to 'BadCharacter'");
                 key = false;
             }
-            else if (badCharacterController != null&&!key)
+            else if (badCharacterController != null && !key)
             {
                 key = true;
                 // Switch to the new controller
@@ -60,12 +65,16 @@ public class PlayerController : MonoBehaviour
                 Debug.LogWarning("Animator Controller 'BadCharacter' not found in Resources folder.");
             }
         }
-        
-        if ((Input.GetKeyDown(KeyCode.D) && transform.localScale.x < 0) || (Input.GetKeyDown(KeyCode.A)&& transform.localScale.x > 0))
+
+        if ((Input.GetKeyDown(KeyCode.D) && transform.localScale.x < 0) || (Input.GetKeyDown(KeyCode.A) && transform.localScale.x > 0))
         {
             Vector3 newScale = transform.localScale;
             newScale.x *= -1;
             transform.localScale = newScale;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Shoot();
         }
     }
 
@@ -74,10 +83,34 @@ public class PlayerController : MonoBehaviour
         // Check if the player touches any surface
         isGrounded = true;
     }
-    
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         // Check if the player leaves the surface
         isGrounded = false;
+    }
+    private void Shoot()
+    {
+        if (bulletPrefab != null && firePoint != null)
+        {
+            // Instantiate the bullet
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+            // Set the direction of the bullet based on the player's direction
+            if (transform.localScale.x > 0)
+            {
+                bullet.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                bullet.transform.localScale = new Vector3(-1, 1, 1);
+            }
+
+            Debug.Log("Bullet fired!");
+        }
+        else
+        {
+            Debug.LogWarning("Bullet prefab or fire point not assigned.");
+        }
     }
 }
