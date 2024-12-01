@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
             healthDeceleration * Time.deltaTime);
         mainHealthBar.fillAmount = health / 100f;
 
-        if (Mathf.Approximately(backgroundHealthBar.fillAmount, 0))
+        if (Mathf.Approximately(0, backgroundHealthBar.fillAmount))
         {
             diePanel.SetActive(true);
         }

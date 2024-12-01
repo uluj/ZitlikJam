@@ -13,6 +13,10 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene("Options");
     }
 
+    public void LoadGameScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
